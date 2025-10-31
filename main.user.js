@@ -15,13 +15,17 @@
 	"use strict";
 	const originalRemove = Element.prototype.remove;
 	Element.prototype.remove = function (...args) {
-		if (this.classList.contains("paywall") || this.classList.contains("asset-embed") || this.classList.contains("narrow")) return;
+		if (
+			this.classList.contains("paywall") ||
+			this.classList.contains("asset-embed") ||
+			this.classList.contains("narrow")
+		)
+			return;
 		return originalRemove.apply(this, args);
 	};
 	document.head.appendChild(
 		Object.assign(document.createElement("style"), {
-			textContent:
-				'.journey-unit__container{display:none}',
+			textContent: ".journey-unit__container{display:none}",
 		})
 	);
 })();
