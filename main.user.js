@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         连线查看更多
 // @namespace    https://github.com/gui-ying233/MoreFreeWired
-// @version      1.0.0
+// @version      1.0.1
 // @description  去除连线的订阅提示并显示更多内容（不一定能完全显示）
 // @author       鬼影233
 // @license      MIT
@@ -18,7 +18,8 @@
 		if (
 			this.classList.contains("paywall") ||
 			this.classList.contains("asset-embed") ||
-			this.classList.contains("narrow")
+			this.classList.contains("narrow") ||
+			this.querySelectorAll(".paywall,.asset-embed,.narrow")
 		)
 			return;
 		return originalRemove.apply(this, args);
